@@ -1,0 +1,74 @@
+<html>
+
+<head>
+    <title>Javascript Ninja</title>
+
+</head>
+
+<body>
+
+    <script>
+
+        function NinjaConstructor(name, health) {
+
+            // an object literal that will be returned
+            
+            //private variables
+            const privatespeed = 3;
+            const privatestrength = 3;
+
+            // attributes of a person
+            this.name = name;
+            this.health = 100;
+            this.sayName = function () {
+                console.log("My name is:  ", this.name);
+            }
+            this.showStats = function () {
+                console.log("Name: ", this.name, "health: ", this.health, "strength:  ", privatestrength);
+            }
+            this.drinkSake = function () {
+                this.health += 10;
+                console.log("health: ", this.health);
+            }
+            this.punch = function (otherNinja) {
+                if (otherNinja instanceof NinjaConstructor) {
+                    otherNinja.health -=5;
+                    console.log(otherNinja.name, "was punched by", this.name, "and lost 5 health!");
+                }
+            }
+            this.kick = function (Ninja2) {
+                if (Ninja2 instanceof NinjaConstructor) {
+                    Ninja2.health -= 15 * privatestrength;
+                    console.log(Ninja2.name, "was kicked by", this.name, "and lost 15 health!");
+                }
+            }
+            // finally, this function must return an instance
+            //return Ninja;
+        }
+
+        
+        // const ninja1 = new NinjaConstructor("Hyabusa");
+        // ninja1.sayName();
+        // // -> "My ninja name is Hyabusa!"
+        // ninja1.showStats();
+        // // -> "Name: Hayabusa, Health: 100, Speed: 3, Strength: 3"
+        // ninja1.drinkSake();
+        
+        var blueNinja = new NinjaConstructor("Goemon");
+
+        var redNinja = new NinjaConstructor("Bill Gates");
+        
+        console.log(redNinja);
+        console.log(blueNinja);
+        
+        redNinja.punch(blueNinja);
+
+        blueNinja.kick(redNinja);
+
+        console.log(redNinja);
+        console.log(blueNinja);
+    </script>
+
+</body>
+
+</html>

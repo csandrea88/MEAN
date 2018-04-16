@@ -1,0 +1,102 @@
+<html>
+
+    <head>
+        <title>Javascript Demo</title>
+
+    </head>
+
+<body>
+
+    <script>
+
+        function CardConstructor(suit, facevalue) {
+            this.suit = suit;
+            this.facevalue = facevalue;
+            // finally, this function must return an instance
+            //return Card;
+        }
+
+        function DeckConstructor() {
+            this.count = 52;
+
+            let suits = ["clubs", "spades", "heats", "diamonds"];
+            let facevalues = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'];
+            let deck = [];
+            
+            for (let i = 0; i < suits.length; i++) {
+                
+                for (let k = 0; k < facevalues.length; k++) {
+                    
+                    var Card = new CardConstructor(suits[i], facevalues[k]);
+                    deck.push(Card);
+                }
+
+            }
+             
+            this.Shuffle = function () {
+                console.log("in shuffle");
+                    
+                for (let i = 0; i < deck.length; i++) {
+                    
+                    let k = Math.floor(Math.random() * 53);
+                    //console.log(k);
+                    let temp = deck[i];
+                    
+                    deck[i] = deck[k]; 
+                    deck[k] = temp;
+                }
+                console.log(deck);  
+            }
+
+
+            this.deal = function () {
+                let k = Math.floor(Math.random() * 53);
+                //dealtcard  = deck[k];
+                let dealtcard = deck.splice(k,1);
+                return dealtcard;
+            }
+
+            this.reset = function () {
+
+                let deck = [];
+
+                let suits = ["clubs", "spades", "heats", "diamonds"];
+                let facevalues = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'];
+                
+                
+                for (let i = 0; i < suits.length; i++) {
+                    
+                    for (let k = 0; k < facevalues.length; k++) {
+                        
+                        var Card = new CardConstructor(suits[i], facevalues[k]);
+                        deck.push(Card);
+                    }
+                }
+                console.log("reset deck length");
+                console.log(deck.length);
+                console.log(deck);
+            }
+ 
+            
+
+        }    
+            
+            
+        const pokerdeck = new DeckConstructor();
+        pokerdeck.Shuffle();
+        
+        const dealt = pokerdeck.deal();
+        pokerdeck.reset();
+        
+        
+        
+
+      
+        
+            
+
+    </script>
+
+</body>
+
+</html>

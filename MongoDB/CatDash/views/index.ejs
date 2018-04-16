@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Cat Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!---CDN Links-->
+    <script src=”//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js”></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+</head>
+<body>
+    <h1>&nbsp;&nbsp;Welcome to the Cat Dashboard:</h1>
+
+    <% if(typeof(errors) != 'undefined' ) { %>
+        <% for (var j in errors) { %>
+            <h3><%= errors[j].message %></h3>
+        <% } %>
+    <% } else { %>
+
+        <table id = "main" class="table">
+            <tr>
+                <th>Name</th>
+                <th>Color</th>
+                <th>Created At</th>
+                <th>Actions</th>
+            </tr>
+            
+            <% for (var x in cats) { %>
+                <tr>
+                    <td><a href="/catProfile/<%= cats[x]._id %>"><%= cats[x].name%></a></td>
+                    <td><%= cats[x].color%></td>
+                    <td><%= cats[x].created_at%></td>
+                    <td><a href="/showCatEdit/<%= cats[x]._id %>" >Edit</a>&nbsp;&nbsp;
+                        <a href="/destroyCat/<%= cats[x]._id %>" >Delete</a></td>
+                </tr>
+            <% } %>
+        </table>
+
+    <% } %>
+
+    
+    <form id="form" action="/addCat" method="post">
+        <div class="form-group">
+                <label for="name"> Name:</label>
+                <input type="text" class="form-control" name="name" id="name">
+        </div>
+        <div class="form-group">
+                <label for="color">Color:</label><br>
+                <input type="text" class="form-control" name="color" id="color">
+        </div>   
+    
+        <button type="submit" class="btn btn-default">Submit</button>
+
+    </form>     
+    
+</body>
+</html>

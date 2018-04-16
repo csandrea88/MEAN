@@ -1,0 +1,21 @@
+#main {
+    width: 600px;
+    margin-left: 25px;
+    
+}
+#form{
+    width: 600px;
+    margin-left: 25px;
+    
+}
+#vtop {
+    height: 200px;
+    width: 600px;
+}
+
+input [type="text"] {
+    width: 500px;
+}
+#profile {
+    margin-left: 20px;
+}

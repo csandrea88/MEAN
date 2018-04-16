@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Survey</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src ="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type ="text/javascript" src="/socket.io/socket.io.js"></script>
+    <script type ="text/javascript">
+         $(document).ready(function(){
+            // this triggers the connection event in our server!
+            
+            var socket  = io.connect();
+            
+            $('form').submit(function (e){
+                console.log("in form submit 1")
+                e.preventDefault();
+                var fname = $( "#fname" ).val();
+                var lname = $( "#lname" ).val();
+                var age = $( "#age" ).val();
+                var email = $( "#email" ).val();
+                console.log(fname, lname, age, email);
+                socket.emit( "in_form", {Ofname: fname, Olname: lname, Oage: age, Oemail: email});
+            });
+
+            socket.on('server_response', function (data){
+                console.log('in client response')
+                console.log( 'The server says: '  + data);
+                let Output_message = '';
+                Output_message += `<p> You emitted the following information to the server: {First Name: ${data.response.fname}, Last Name: ${data.response.lname}, Age: ${data.response.age}, Email: ${data.response.email}}  </p>`
+                
+                Output_message += `<br><p>Your lucky number is ${data.lucky_num}</p>`
+
+                 
+                $("#server_response").append(Output_message);
+
+            });
+        });
+    </script>
+    
+</head>
+<body>
+<h1>Survey Form</h1>    
+<div id="server_response">
+    <!--jquery response to clinet request info-->
+
+
+</div>
+<form action="/process" method="post">
+    
+        First Name: <input id="fname" type="text" name="fname"><br>
+        Last Name: <input id="lname" type="text" name="lname"><br>
+        Age: <input id="age" type="text" name="age"><br>
+        Email Address: <input id = "email" type="text" name="email"><br>
+        Password: <input type="text" name="password"><br>
+        <button type="submit" value ="Submit"></button><br>
+   
+</form>     
+    
+</body>
+</html>

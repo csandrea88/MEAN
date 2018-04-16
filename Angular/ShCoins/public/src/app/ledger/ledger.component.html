@@ -1,0 +1,22 @@
+<h1> Browse the Ledger</h1>
+<h3> Here you can browse all ShintoCoin transactions</h3>
+
+
+<table style="width:100%">
+  <tr>
+      <th>Amount</th>
+      <th>Value</th>
+      <th>Action</th>
+      <th></th>
+  </tr> 
+  
+  <tr *ngFor='let tran of trans; let i = index'>
+    <td><a href=''>{{tran[0]}}</a></td>
+    <td>{{tran[1]}}</td>
+    <td>{{tran[2]}}</td>
+    <td><a [routerLink]="['/ledgerid', i]">Details</a></td>
+  </tr> 
+  
+</table>
+
+<p></p>

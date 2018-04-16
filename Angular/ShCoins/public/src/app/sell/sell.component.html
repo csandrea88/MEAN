@@ -1,0 +1,12 @@
+<h3> Sell Shinto Coins </h3>
+
+<h4>Number of ShintoCoins Owned/Value: {{retBal}}</h4>
+
+<form (submit)="onSubmit()">
+
+  <input type="number" name="Num" [(ngModel)]="Num"> 
+  <input type="submit" value="Sell">
+
+</form>
+
+<p>{{Message}}</p>

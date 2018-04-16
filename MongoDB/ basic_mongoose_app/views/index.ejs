@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Basic Mongoose</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!---CDN Links-->
+    <script src=”//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js”></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+</head>
+<body>
+    <% if(typeof(errors) != 'undefined' ) { %>
+        <% for (var j in errors) { %>
+            <h3><%= errors[j].message %></h3>
+        <% } %>
+    <% } else { %> 
+        <table id = "main" class="table">
+            <tr>
+                <th>Name</th>
+                <th>Age</th>
+            </tr>
+            
+            <% for (var x in users) { %>
+                <tr>
+                    <td><%= users[x].name%></td>
+                    <td><%= users[x].age%></td>
+                </tr>
+            <% } %>
+
+        </table>
+    <% } %>
+
+    <form id="form" action="/users" method="post">
+        <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" class="form-control" name="name" id="name">
+        </div>
+        <div class="form-group">
+                <label for="age">Age:</label>
+                <input type="text" class="form-control" name="age" id="age">
+        </div>   
+    
+        <button type="submit" class="btn btn-default">Submit</button>
+    </form>     
+    
+</body>
+</html>

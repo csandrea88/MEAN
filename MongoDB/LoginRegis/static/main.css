@@ -1,0 +1,31 @@
+#main {
+    width: 600px;
+    margin-left: 25px;
+    
+}
+#form{
+    width: 450px;
+    margin-left: 25px;
+    display: inline-block;
+    vertical-align: top;
+    
+}
+#vtop {
+    height: 200px;
+    width: 600px;
+}
+#comm {
+    height: 75px;
+    width: 600px;
+}
+
+input [type="textarea"] {
+    width: 500px;
+}
+#profile {
+    margin-left: 20px;
+}
+.comm {
+    height: 50px;
+    width: 600px;
+}

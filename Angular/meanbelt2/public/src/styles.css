@@ -1,0 +1,18 @@
+#main {
+    width: 85%;
+    margin: 20px;
+}
+#custom {
+    background-color: rgb(238, 240, 244);
+    border-color: rgb(171, 194, 223);
+    border-style: solid;
+    border-width: 2px;
+    padding:10px;
+}
+
+h1 {
+    margin: 20px;
+}
+#main td, th {
+    padding:10px;
+}

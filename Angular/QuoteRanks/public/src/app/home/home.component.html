@@ -1,0 +1,24 @@
+<div id='main'>   
+    
+    <p><a [routerLink]="['/AddAuth']">Add a quotable author</a></p>  
+    
+    <h5>We have quotes by:</h5>  
+
+    <table id="custom" class='table table-bordered'>
+      
+      <tr>
+        <th>Author</th>
+        <th>Actions Available</th>
+      </tr>
+      
+      <tr *ngFor='let author of authors'>
+        <td>{{author.name}}</td>
+        <td>
+          <button class="btn btn-primary btn-sm" [routerLink]="['/QuotesByAuth', author._id]">View Quotes</button>
+          <button class="btn btn-primary btn-sm" [routerLink]="['/EditAuth', author._id]">Edit</button>
+        </td>
+      </tr>
+
+    </table>
+    
+</div> 

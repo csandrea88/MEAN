@@ -1,0 +1,12 @@
+<div id='main'>
+        
+    <p>Edit a quotable author</p>
+
+    <form (submit)="onSubmit()">
+        <label>Name:</label>
+        <input type="text" name="editAuthor.name" [(ngModel)]="editAuthor.name" value={{author.name}}> 
+        <button class="btn btn-primary btn-sm" [routerLink]="['/Home']">Cancel</button>
+        <input class="btn btn-primary btn-sm" type="submit" value="Submit">
+    </form>
+</div>
+  

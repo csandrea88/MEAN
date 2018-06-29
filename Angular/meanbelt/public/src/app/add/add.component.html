@@ -1,0 +1,69 @@
+<div id='main'>
+    <p><a [routerLink]="['/Home']">Home</a></p>  <br> 
+    
+    <h4>Know of a pet needing a home?</h4>
+
+    <form #add="ngForm" id="custom" (submit)="onSubmit()">
+        
+        <label>Pet Name:</label><br>
+        <input 
+            type="text" 
+            name="newBelt.name" 
+            required
+            minlength="3"
+            [(ngModel)]="newBelt.name"
+            #name="ngModel"><br>
+
+        <label>Pet Type:</label><br>
+        <input 
+            type="text" 
+            name="newBelt.type" 
+            required
+            minlength="3"
+            [(ngModel)]="newBelt.type"
+            #type="ngModel"><br>
+
+        <label>Description:</label><br>
+        <input 
+            type="text" 
+            name="newBelt.description" 
+            required
+            minlength="3"
+            [(ngModel)]="newBelt.description"
+            #description="ngModel"><br>
+
+        <label>Skill 1:</label><br>
+        <input 
+            type="text" 
+            name="newBelt.skill1" 
+            [(ngModel)]="newBelt.skill1"
+            #skill1="ngModel"><br>
+
+        <label>Skill 2:</label><br>
+        <input 
+            type="text" 
+            name="newBelt.skill2" 
+            [(ngModel)]="newBelt.skill2"
+            #skill2="ngModel"><br>
+            
+        <label>Skill 3:</label><br>
+        <input 
+            type="text" 
+            name="newBelt.skill3" 
+            [(ngModel)]="newBelt.skill3"
+            #skill3="ngModel"><br>
+        
+        
+        <button class="btn btn-primary btn-sm" [routerLink]="['/Home']">Cancel</button>
+        <button class="btn btn-primary btn-sm" [disabled]= 'add.invalid' type="submit" value="Submit">Submit</button>
+    </form>
+    
+    
+   <!-- <p *ngIf="!name.minlength.valid" >Pet Name must be at least 3 long</p>
+    <p *ngIf="!name.required" >Pet name is required</p>
+    <p *ngIf="!type.minlength" >Pet type must be at least 3 long</p>
+    <p *ngIf="!name.required" >Pet type is required</p>
+    <p *ngIf="!description.minlength" >Pet description must be at least 3 long</p>
+    <p *ngIf="!description.required" >Pet description is required</p> -->
+
+

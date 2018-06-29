@@ -1,0 +1,53 @@
+<div id='main'>
+        
+    <h4>Edit a restaurant</h4>
+
+    <form id="custom" (submit)="onSubmit()" #edit="ngForm">
+        
+        <label>Restaurant Name:</label><br>
+        <!-- <input type="text" name="editBelt.name" value={{belt.name}} [(ngModel)]="editBelt.name"><br> -->
+        <input 
+            type="text" 
+            name="name" 
+            required
+            minlength="3"
+            [(ngModel)]="belt.name"
+            #name="ngModel"/><br>
+
+        <div *ngIf="!name.valid" >
+            <p *ngIf="name.errors.minlength" >Restaurant Name must be at least 3 long.</p>
+            <p *ngIf="name.errors.required" >Restaurant Name is required, please enter.</p>
+        </div>
+
+        <div *ngIf="name.valid">
+            <p>Restaurant Name is all good</p>
+        </div> 
+
+        <label>Cuisine:</label><br>
+        <input 
+            type="text" 
+            name="type" 
+            required
+            minlength="3"
+            [(ngModel)]="belt.type"
+            #type="ngModel"/><br>
+
+        <div *ngIf="!type.valid" >
+            <p *ngIf="type.errors.minlength" >Cuisine must be at least 3 long.</p>
+            <p *ngIf="type.errors.required" >Cuisine is required, please enter.</p>
+        </div>
+
+        <div *ngIf="type.valid">
+            <p>Cuisine is all good</p>
+        </div> 
+
+        <button class="btn btn-primary btn-sm" [routerLink]="['/Home']">Cancel</button>
+        <!-- <button class="btn btn-primary btn-sm" type="submit">Submit</button> -->
+        <button class="btn btn-primary btn-sm" [disabled]= '!edit.valid' type="submit" value="Submit">Submit</button>
+    
+    </form>
+
+    <h4 *ngIf="message">{{message}}</h4>
+
+
+</div>

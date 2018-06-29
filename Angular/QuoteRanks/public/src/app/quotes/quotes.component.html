@@ -1,0 +1,28 @@
+<!--The content below is only a placeholder and can be replaced.-->
+
+  <div id="main">
+    <p>
+      <a [routerLink]="['/Home']">Home</a> -->
+      <a [routerLink]="['/AddQuote', authorid]">Add a quote</a>
+    </p>
+    
+    <h5>Quotes by: {{author.name}}</h5>  
+    <table id="custom" class='table-bordered table'>
+      <tr>
+        <th>Quotes</th>
+        <th>Votes</th>
+        <th>Actions Available</th>
+      </tr>
+      <tr *ngFor='let quote of author.quotes'>
+        <td>{{quote.quote}}</td>
+        <td >{{quote.totvotes}}</td>
+        <td>
+          <button class="btn btn-primary btn-sm" (click)="clickVoteup(quote._id)">Vote Up</button>
+          <button class="btn btn-primary btn-sm" (click)="clickVotedown(quote._id)">Vote Down</button>
+          <button class="btn btn-primary btn-sm" (click)="clickDelete(quote._id)">Delete</button>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+    

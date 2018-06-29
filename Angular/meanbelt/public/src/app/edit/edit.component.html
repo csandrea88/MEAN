@@ -1,0 +1,73 @@
+<div id='main'>
+        
+    <h4>Edit this pet</h4>
+
+    <form #edit="ngForm" id="custom" (submit)="onSubmit()">
+
+        <label>Pet Name:</label><br>
+        <input 
+            type="text" 
+            name="editBelt.name" 
+            value={{belt.name}}
+            required
+            minlength="3"
+            [(ngModel)]="editBelt.name"
+            #name="ngModel"><br>
+
+        <p *ngIf="!name.minlength" >Pet Name must be at least 3 long</p>
+
+
+        <label>Pet Type:</label><br>
+        <input 
+            type="text" 
+            name="editBelt.type" 
+            value={{belt.type}}
+            required
+            minlength="3"
+            [(ngModel)]="editBelt.type"
+            #type="ngModel"><br>
+
+        <label>Description:</label><br>
+        <input 
+            type="text" 
+            name="editBelt.description" 
+            value={{belt.description}}
+            required
+            minlength="3"
+            [(ngModel)]="editBelt.description"
+            #description="ngModel"><br>
+
+        <label>Skill 1:</label><br>
+        <input 
+            type="text" 
+            name="editBelt.skill1" 
+            value={{belt.skill1}}
+            [(ngModel)]="editBelt.skill1"
+            #skill1="ngModel"><br>
+
+        <label>Skill 2:</label><br>
+        <input 
+            type="text" 
+            name="editBelt.skill2" 
+            value={{belt.skill2}}
+            [(ngModel)]="editBelt.skill2"
+            #skill2="ngModel"><br>
+            
+        <label>Skill 3:</label><br>
+        <input 
+            type="text" 
+            name="editBelt.skill3" 
+            value={{belt.skill3}}
+            [(ngModel)]="editBelt.skill3"
+            #skill3="ngModel"><br>
+        
+
+
+        <button class="btn btn-primary btn-sm" [routerLink]="['/Home']">Cancel</button>
+        <!-- <input class="btn btn-primary btn-sm" type="submit" value="Submit"> -->
+        <button class="btn btn-primary btn-sm" [disabled]= '!edit.valid' type="submit" value="Submit">Submit</button>
+    
+    </form>
+
+
+</div>

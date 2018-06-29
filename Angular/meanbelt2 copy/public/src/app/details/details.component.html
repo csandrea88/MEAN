@@ -1,0 +1,28 @@
+<div id="main">
+    <p>
+      <a [routerLink]="['/Home']">Home</a><br><br>
+      <!-- <a [routerLink]="['/Addrel', beltid]">Add a review</a> -->
+      <button class="btn btn-primary btn-sm" [routerLink]="['/Addrel', beltid]">New Review</button><br><br> 
+    </p>
+    
+    <h5>Reviews for: {{belt.name}}</h5>  
+    <table id="custom" class='table-bordered table'>
+      <tr>
+        <th>Customer</th>
+        <th>Stars</th>
+        <th>Description</th>
+      </tr>
+      <tr *ngFor='let review of belt.reviews'>
+        <td>{{review.cust}}</td>
+        <td>{{review.stars}}</td>
+        <td>{{review.review}}</td>
+        <!-- <td>
+          <button class="btn btn-primary btn-sm" (click)="clickVoteup(quote._id)">Vote Up</button>
+          <button class="btn btn-primary btn-sm" (click)="clickVotedown(quote._id)">Vote Down</button>
+          <button class="btn btn-primary btn-sm" (click)="clickDelete(quote._id)">Delete</button>
+        </td> -->
+      </tr> 
+    </table>
+  </div>
+
+    

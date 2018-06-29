@@ -1,0 +1,40 @@
+<div id='main'>
+  <p><a [routerLink]="['/Home']">Home</a></p>  
+
+  <h4>Details about {{belt.name}} </h4>
+
+  <table id="custom" class='table table-bordered'>
+    <tr>
+      <td>Pet type</td>
+      <td>{{belt.type}}</td>
+    </tr>
+
+    <tr>
+      <td>Description:</td>
+      <td>{{belt.description}}</td>
+    </tr>
+
+    <tr>
+      <td>Skills:</td>
+      <td>{{belt.skill1}} </td>
+    <tr *ngIf="belt.skill2">
+      <td>&nbsp;</td>
+      <td>{{belt.skill2}} </td>
+    </tr>
+    <tr *ngIf="belt.skill3">
+      <td>&nbsp;</td>
+      <td>{{belt.skill3}} </td>
+    </tr>
+
+    <tr>
+      <td>Likes:</td>
+      <td>{{belt.totlikes}}</td>
+    </tr>
+    <tr>
+      <td><button class="btn btn-primary btn-sm" (click)="clickVoteup(belt._id)">Like this pet!</button></td>
+      <td><button class="btn btn-primary btn-sm" (click)="clickDelete(belt._id)">Adopt this pet!</button></td>
+    </tr>
+
+              
+  </table>
+</div>

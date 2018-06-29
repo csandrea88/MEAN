@@ -12,7 +12,7 @@ var path = require('path');
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/quotingDojo');
 var QuoteSchema = new mongoose.Schema({
-    name: {type:String, required:true},
+    name: {type:String, required: "Name is Required, please enter"},
     quote: {type:String, required:true},
     created_at: {type: Date, default: Date.now}
    })

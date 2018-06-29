@@ -1,0 +1,16 @@
+
+<p>
+  
+</p>
+
+<div id='main'>
+    <a [routerLink]="['/Home']">Home</a><br><br>
+    <p>Add a new quote</p>
+    <form id="custom" (submit)="onSubmit()">
+        <label>Quote:</label>
+        <input type="text" name="newQuote.quote" [(ngModel)]="newQuote.quote">     
+        <button class="btn btn-primary btn-sm" [routerLink]="['/Home']">Cancel</button>
+        <input class="btn btn-primary btn-sm" type="submit" value="Submit">
+    </form>
+</div>
+  

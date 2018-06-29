@@ -1,0 +1,63 @@
+<h4>Write a review for {{beltname}}</h4>
+
+<form #add="ngForm" id="custom" (submit)="onSubmit()">
+        
+    <label>Customer Name:</label><br>
+    <input 
+        type="text" 
+        name="cust" 
+        required
+        minlength="3"
+        [(ngModel)]="newRel.cust"
+        #cust="ngModel"><br>
+
+    <div *ngIf="!cust.valid" >
+        <p *ngIf="cust.errors.minlength" >Customer Name must be at least 3 long.</p>
+        <p *ngIf="cust.errors.required" >Customer Name is required, please enter.</p>
+    </div>
+
+    <div *ngIf="cust.valid">
+        <p>Customer Name is all good</p>
+    </div> 
+
+    <label>Stars:</label><br>
+    <select name="stars" required [(ngModel)]="newRel.stars" #stars="ngModel"><br>
+        <option value=1>1</option>
+        <option value=2>2</option>
+        <option value=3>3</option>
+        <option value=4>4</option>
+        <option value=5>5</option>
+    </select>
+
+    <div *ngIf="!stars.valid" >
+        <p *ngIf="stars.errors.required" >Stars are required, please choose a star rating.</p>
+    </div>
+    
+    <div *ngIf="stars.valid">
+        <p>Stars are all good</p>
+    </div>     
+
+    <label>Your Review:</label><br>
+    <input 
+        type="text" 
+        name="review" 
+        required
+        minlength="3"
+        [(ngModel)]="newRel.review"
+        #review="ngModel"><br>
+
+    <div *ngIf="!review.valid" >
+        <p *ngIf="review.errors.minlength" >Review must be at least 3 long.</p>
+        <p *ngIf="review.errors.required" >Review is required, please enter.</p>
+    </div>
+
+    <div *ngIf="review.valid">
+        <p>Review is all good</p>
+    </div> 
+
+    <button class="btn btn-primary btn-sm" [routerLink]="['/Home']">Cancel</button>
+    <button class="btn btn-primary btn-sm" [disabled]= 'add.invalid' type="submit" >Submit</button>
+</form>
+
+<h4 *ngIf="message">{{message}}</h4>
+

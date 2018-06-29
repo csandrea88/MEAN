@@ -1,0 +1,50 @@
+<div id='main'>
+    <p><a [routerLink]="['/Home']">Home</a></p> 
+    
+    <form #add="ngForm" id="custom" (submit)="onSubmit()">
+        
+        <label>Restaurant Name:</label><br>
+        <input 
+            type="text" 
+            name="name" 
+            required
+            minlength="3"
+            [(ngModel)]="newBelt.name"
+            #name="ngModel"><br>
+
+        <div *ngIf="!name.valid" >
+            <p *ngIf="name.errors.minlength" >Restaurant Name must be at least 3 long.</p>
+            <p *ngIf="name.errors.required" >Restaurant Name is required, please enter.</p>
+        </div>
+
+        <div *ngIf="name.valid">
+            <p>Restaurant Name is all good</p>
+        </div> 
+        
+
+        <label>Cuisine:</label><br>
+        <input 
+            type="text" 
+            name="type" 
+            required
+            minlength="3"
+            [(ngModel)]="newBelt.type"
+            #type="ngModel"><br>
+
+        <div *ngIf="!type.valid" >
+            <p *ngIf="type.errors.minlength" >Cuisine must be at least 3 long.</p>
+            <p *ngIf="type.errors.required" >Cuisine is required, please enter.</p>
+        </div>
+
+        <div *ngIf="type.valid">
+            <p>Cuisine is all good</p>
+        </div> 
+    
+        <button class="btn btn-primary btn-sm" [routerLink]="['/Home']">Cancel</button>
+        <button class="btn btn-primary btn-sm" [disabled]= 'add.invalid' type="submit" >Submit</button>
+    </form>
+
+    <h4 *ngIf="message">{{message}}</h4>
+    
+
+

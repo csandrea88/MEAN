@@ -1,0 +1,29 @@
+<div id='main'>  
+  
+    <button class="btn btn-primary btn-sm" [routerLink]="['/Add']">New Restaurant</button><br><br>
+  
+    <table id="custom" class='table table-bordered'>
+      
+      <tr>
+        <th>Restaurant</th>
+        <th>Cuisine</th>
+        <th>Actions Available</th>
+      </tr>
+      
+      <tr *ngFor='let belt of belts'>
+        <!-- <td><a [routerLink]="['/Details', belt._id]"{{belt.name}}></a></td> -->
+        <td><a [routerLink]="['/Details', belt._id]">{{belt.name}}</a></td>
+        <td><a [routerLink]="['/Add']">{{belt.type}}</a></td>
+        <td>
+          <button class="btn btn-primary btn-sm" [routerLink]="['/Details', belt._id]">Read Reviews</button>
+          <button class="btn btn-primary btn-sm" [routerLink]="['/Edit', belt._id]">Edit</button>
+          <button class="btn btn-primary btn-sm" (click)="clickDelete(belt._id)">Delete</button>
+        </td>
+      </tr>
+  
+    </table>
+    
+  </div> 
+  
+  
+

@@ -1,0 +1,28 @@
+<div id='main'>  
+  
+  <h4>These pets are looking for a home</h4> 
+  <p><a [routerLink]="['/Add']">Add a pet to the shelter</a></p>  
+
+  <table id="custom" class='table table-bordered'>
+    
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Actions Available</th>
+    </tr>
+    
+    <tr *ngFor='let belt of belts'>
+      <!-- <td><a [routerLink]="['/Details', belt._id]"{{belt.name}}></a></td> -->
+      <td><a [routerLink]="['/Details', belt._id]">{{belt.name}}</a></td>
+      <td><a [routerLink]="['/Add']">{{belt.type}}</a></td>
+      <td>
+        <button class="btn btn-primary btn-sm" [routerLink]="['/Edit', belt._id]">Edit</button>
+        <button class="btn btn-primary btn-sm" [routerLink]="['/Details', belt._id]">Details</button>
+        <button class="btn btn-primary btn-sm" (click)="clickDelete(belt._id)">Delete</button>
+      </td>
+    </tr>
+
+  </table>
+  
+</div> 
+

@@ -18,7 +18,7 @@
         <button class="btn btn-primary btn-sm" [routerLink]="['/Home']">Cancel</button>
         <button class="btn btn-primary btn-sm" [disabled]= 'addauth.invalid' type="submit" value="Submit">Submit</button>
 
-        <p *ngIf="!name.valid" >Enter valid name please</p>
+        <p *ngIf="!name.valid" >Invalid Name</p>
         <p *ngIf="name.valid">Name is all good</p>
 
 

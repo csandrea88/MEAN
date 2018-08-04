@@ -22,7 +22,7 @@
         <button class="btn btn-primary btn-sm" [routerLink]="['/Home']">Cancel</button>
         <button class="btn btn-primary btn-sm" [disabled]= 'addquote.invalid' type="submit" value="Submit">Submit</button>
 
-        <p *ngIf="!quote.valid" >Enter valid quote please</p>
+        <p *ngIf="!quote.valid" >Invalid Quote</p>
         <p *ngIf="quote.valid">Quote is all good</p>
 
 

@@ -16,7 +16,7 @@
         <button class="btn btn-primary btn-sm" [routerLink]="['/Home']">Cancel</button>
         <button class="btn btn-primary btn-sm" [disabled]= 'editauth.invalid' type="submit" value="Submit">Submit</button>
 
-        <p *ngIf="!ename.valid" >Enter valid name please</p>
+        <p *ngIf="!ename.valid" >Invalid Name</p>
         <p *ngIf="ename.valid">Name is all good</p>
 
 

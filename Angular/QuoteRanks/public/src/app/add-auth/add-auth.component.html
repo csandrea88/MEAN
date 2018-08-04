@@ -1,25 +1,29 @@
 
 <div id='main'>
     <p><a [routerLink]="['/Home']">Home</a></p>  <br>  
-    <p>Add a new quotable author</p>
+    <h5>Add a new quotable author</h5>
 
     <form #addauth="ngForm" id="custom" (submit)="onSubmit()">
         <label>Name:</label>
         <input 
             type="text" 
-            name="newAuthor.name" 
+            name="name" 
             required
             minlength="8"
             maxlength="40"
             [(ngModel)]="newAuthor.name"
-            #name="ngModel"
-        > 
+            #name="ngModel"> 
+            
         
         <button class="btn btn-primary btn-sm" [routerLink]="['/Home']">Cancel</button>
         <button class="btn btn-primary btn-sm" [disabled]= 'addauth.invalid' type="submit" value="Submit">Submit</button>
+
+        <p *ngIf="!name.valid" >Enter valid name please</p>
+        <p *ngIf="name.valid">Name is all good</p>
+
+
     </form>
     
-    <p *ngIf="!name.valid" >Enter name please</p>
 
  
 </div>

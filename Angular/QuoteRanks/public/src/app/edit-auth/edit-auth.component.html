@@ -1,12 +1,34 @@
 <div id='main'>
         
-    <p>Edit a quotable author</p>
+    <h5>Edit a quotable author</h5>
 
-    <form (submit)="onSubmit()">
+    <form #editauth="ngForm" id="custom" (submit)="onSubmit()">
+        <label>Name:</label>
+        <input 
+            type="text" 
+            name="ename" 
+            required
+            minlength="8"
+            maxlength="40"
+            [(ngModel)]="editAuthor.name"
+            #ename="ngModel"> 
+            
+        <button class="btn btn-primary btn-sm" [routerLink]="['/Home']">Cancel</button>
+        <button class="btn btn-primary btn-sm" [disabled]= 'editauth.invalid' type="submit" value="Submit">Submit</button>
+
+        <p *ngIf="!ename.valid" >Enter valid name please</p>
+        <p *ngIf="ename.valid">Name is all good</p>
+
+
+    </form>
+    
+
+
+    <!-- <form (submit)="onSubmit()">
         <label>Name:</label>
         <input type="text" name="editAuthor.name" [(ngModel)]="editAuthor.name" value={{author.name}}> 
         <button class="btn btn-primary btn-sm" [routerLink]="['/Home']">Cancel</button>
         <input class="btn btn-primary btn-sm" type="submit" value="Submit">
-    </form>
+    </form> -->
 </div>
   

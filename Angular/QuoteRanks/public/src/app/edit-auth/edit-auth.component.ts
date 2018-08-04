@@ -24,6 +24,7 @@ export class EditAuthComponent implements OnInit {
     const observable = this._httpService.getauthorsbyid(this.authorid);
     observable.subscribe(data => {
       console.log('Got the author!', data);
+      this.editAuthor = data['data'];
       this.author = data['data'];
     });
   }
